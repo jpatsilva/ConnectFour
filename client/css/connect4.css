@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#board
+{
+    height: 540px;
+    width: 630px;
+
+    background-color: maroon;
+    border: 10px solid red;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile
+{
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid red;
+}
+
+.player-One
+{
+    background-color: blue;
+}
+
+.player-Two
+{
+    background-color: rgb(38, 255, 0);
+}
+
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+  color: black;
+
+  width: 630px;
+
+  text-align: left;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 5px solid maroon;
+  overflow-y: scroll;
+
+  display: inline-block;
+  flex-wrap: wrap;
+  }
+
+  #events {
+    height: 150px;
+  }
+
+  #play
+  {
+    height: 50px;
+    width: 100px;
+
+    background-color: green;
+    color: white;
+  }
+
+  .controls-wrapper {
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    margin: 20px auto;
+    border: 1px solid lightgrey;
+  }
+
+  .chat-wrapper {
+    padding: 10px;
+  }
+  
+  .chat-wrapper form {
+    width: 630px;
+    height: 30px;
+    display: inline-flex;
+  }
+  
+  .chat-wrapper form input {
+    font-size: 1.0rem;
+    margin: 0 10px 0 0;
+    padding: 0 5px;
+    flex-grow: 1;
+  }
+  
+  .chat-wrapper form button {
+    width: 80px;
+  }
+
+  .playerNames .player-One .player-Two
+  {
+    width: 100px;
+    height: 100px;
+
+    text-align: left;
+  }

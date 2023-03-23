@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect 4 Multiplayer</title>
+    <link rel="stylesheet" href="css/connect4.css">
+  </head>
+
+  <body>
+    <h1>Connect 4</h1>
+    <h2 id="winner"></h2>
+    <div id="board"></div>
+
+    <h1>Enter Player Names!</h1>
+    <form id="currentPlayer1">
+      <label for="fname1">Player One</label>
+      <input type="text" id="fname1" name="fname1">
+      <input type="submit" value="Submit"> 
+    </form>
+
+    <form id="currentPlayer2">
+      <label for="fname2">Player Two</label>
+      <input type="text" id="fname2" name="fname2">
+      <input type="submit" value="Submit"> 
+    </form>
+
+    <div id="playerNames">
+      <h2 id="player1">Player One: </h2>
+      <h2 id="player2">Player Two: </h2>
+    </div>
+
+    <ul id="events"></ul>
+
+    <div class="controls">
+      <div class="chat-wrapper">
+        <form id="chat-form">
+          <input id="chat" autocomplete="off" title="chat"/>
+          <button id="SendChat">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <button id="play">Play</button>
+    <p id="playing">Please Press the Play Button To Begin Playing</p>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/con4client.js"></script>
+
+  </body>
+
+</html>
