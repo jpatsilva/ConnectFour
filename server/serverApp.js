@@ -56,6 +56,7 @@ io.on('connection', (sock) => {
     sock.on('player1', (text) => io.emit('player1', text));
     sock.on('player2', (text) => io.emit('player2', text));
     sock.on('playButton', () => io.emit('playButton', ));
+    //sock.on('player-selection', (board) => io.emit(loadGame))
 
     //sock.emit('board', getBoard());
   });

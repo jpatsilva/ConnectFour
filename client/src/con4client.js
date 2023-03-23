@@ -16,7 +16,7 @@ var columns = 7;
 //     //loadGame();
 // }
 
-function loadGame()
+function loadGame(sock)
 {
     board = [];
     currColumnms = [5, 5, 5, 5, 5, 5, 5];
@@ -33,14 +33,14 @@ function loadGame()
             let tile = document.createElement("div");
             tile.id = row.toString() + "-" + column.toString();
             tile.classList.add("tile");
-            tile.addEventListener("click", placePiece);
+            tile.addEventListener("click", placePiece(sock));
             document.getElementById("board").append(tile);
         }
         board.push(gameRow);
     } 
 }
 
-function placePiece()
+function placePiece(sock)
 {
     if (startGame == false || gameOver)
     {
@@ -64,11 +64,13 @@ function placePiece()
         if(currPlayer == playerOne)
         {
             tile.classList.add("player-One");
+            sock.emit('player-selection', board);
             currPlayer = playerTwo;
         }
         else
         {
             tile.classList.add("player-Two")
+            sock.emit('player-selection', board);
             currPlayer = playerOne;
         }
 
@@ -180,13 +182,13 @@ const log = (text) => {
     document.getElementById('player2').innerHTML = "Player Two: " + text;
   }
 
-  const playButton = () => {
+  const playButton = (sock) => {
     document.getElementById('play').style.backgroundColor = "red";
     document.getElementById('playing').innerHTML = "Begin playing...";
 
     startGame = true;
 
-    loadGame();
+    loadGame(sock);
 
     sock.emit('game-started');
   }
@@ -240,7 +242,7 @@ const onChatSubmitted = (sock) => (e) => {
     sock.on('message', log);
     sock.on('player1', player1);
     sock.on('player2', player2);
-    sock.on('playButton', playButton);
+    sock.on('playButton', playButton(sock));
     sock.on('playerSelection', board);
     //sock.on('board', reset);
   
